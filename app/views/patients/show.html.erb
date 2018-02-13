@@ -5,6 +5,10 @@
 </h4>
 
 <p>
+  Patient's insurance company: <%= link_to @patient.insurance_card.name, insurance_card_path(@patient.insurance_card) %>
+</p>
+
+<p>
   List all doctors:
 </p>
 
@@ -30,4 +34,6 @@
 
 <hr>
 
+<%= link_to 'Edit this Patient', edit_patient_path(@patient) %>
+<br>
 <%= link_to 'Show all Patients', patients_path %>

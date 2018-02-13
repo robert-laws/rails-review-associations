@@ -1,0 +1,9 @@
+<h1>All Insurance Companies</h1>
+
+<ul>
+  <% @insurance_cards.each do |insurance_card| %>
+    <li>
+      <%= link_to insurance_card.name, insurance_card_path(insurance_card) %>
+    </li>
+  <% end %>
+</ul>

@@ -6,19 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+InsuranceCard.delete_all
 Appointment.delete_all
 Doctor.delete_all
 Patient.delete_all
+
+@card_1 = InsuranceCard.create(name: "BlueCross BlueShield")
+@card_2 = InsuranceCard.create(name: "Prudential")
+@card_3 = InsuranceCard.create(name: "Aetna")
+@card_4 = InsuranceCard.create(name: "Medicare")
 
 @doctor_1 = Doctor.create(name: "Bob Cobb", age: 32)
 @doctor_2 = Doctor.create(name: "Jim Jupe", age: 27)
 @doctor_3 = Doctor.create(name: "Hal Hope", age: 43)
 @doctor_4 = Doctor.create(name: "Val Vine", age: 64)
 
-@patient_1 = Patient.create(name: "Betty Balloon")
-@patient_2 = Patient.create(name: "Micky Mellon")
-@patient_3 = Patient.create(name: "Davey Docker")
-@patient_4 = Patient.create(name: "Sally Smith")
+@patient_1 = Patient.create(name: "Betty Balloon", insurance_card: @card_1)
+@patient_2 = Patient.create(name: "Micky Mellon", insurance_card: @card_2)
+@patient_3 = Patient.create(name: "Davey Docker", insurance_card: @card_3)
+@patient_4 = Patient.create(name: "Sally Smith", insurance_card: @card_4)
 
 Appointment.create(doctor: @doctor_1, patient: @patient_1, date_and_time: DateTime.new(2018, 2, 18, 8, 30, 0))
 Appointment.create(doctor: @doctor_2, patient: @patient_4, date_and_time: DateTime.new(2018, 3, 1, 10, 0, 0))

@@ -3,6 +3,6 @@ class Doctor < ApplicationRecord
   has_many :patients, through: :appointments
 
   def find_unique_patients
-    self.patients.distinct.pluck(:name)
+    self.patients.distinct
   end
 end

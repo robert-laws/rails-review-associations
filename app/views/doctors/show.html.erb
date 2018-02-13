@@ -13,7 +13,7 @@
 </p>
 
 <ul>
-  <% @doctor.patients.distinct.each do |patient| %>
+  <% @doctor.find_unique_patients.each do |patient| %>
     <li>
       <%= link_to patient.name, patient_path(patient) %>
     </li>

@@ -1,0 +1,21 @@
+<h1>Insurance Company Details</h1>
+
+<h4>
+  Company Name: <%= @insurance_card.name %>
+</h4>
+
+<p>
+  List of members:
+</p>
+
+<ul>
+  <% @insurance_card.patients.each do |patient| %>
+    <li>
+      <%= link_to patient.name, patient_path(patient) %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to 'Show all Insurance Companies', insurance_cards_path %>

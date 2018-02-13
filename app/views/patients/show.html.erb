@@ -1,0 +1,33 @@
+<h1>Individual Patient Information</h1>
+
+<h4>
+  Name: <%= @patient.name %>
+</h4>
+
+<p>
+  List all doctors:
+</p>
+
+<ul>
+  <% @patient.doctors.distinct.each do |doctor| %>
+    <li>
+      <%= link_to doctor.name, doctor_path(doctor) %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  List all appointments:
+</p>
+
+<ul>
+  <% @patient.appointments.each do |appointment| %>
+    <li>
+      <%= appointment.date_and_time.strftime("%A, %B %e, %Y at %l:%M%P") %> with Dr. <%= appointment.doctor.name %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to 'Show all Patients', patients_path %>
